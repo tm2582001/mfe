@@ -8,7 +8,8 @@ const domain = process.env.PRODUCTION_DOMAIN;
 const prodConfig = {
     mode: "production",
     output: {
-        filename: '[name].[contenthash].js'
+        filename: '[name].[contenthash].js',
+        //? publicPath:"/container/latest/"  this is needed with current s3 setup but I am deploying to netlify
     },
     plugins: [
         new ModuleFederationPlugin({
