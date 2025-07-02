@@ -10,6 +10,7 @@ const prodConfig = {
     mode: "production",
     output: {
         filename: '[name].[contenthash].js',
+        publicPath: "/"
         //? publicPath:"/container/latest/"  this is needed with current s3 setup but I am deploying to netlify
     },
     plugins: [
