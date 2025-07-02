@@ -1,4 +1,6 @@
 const { VueLoaderPlugin } = require("vue-loader");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 
 module.exports = {
   entry: "./src/index.js",
@@ -44,5 +46,17 @@ module.exports = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "public",
+          globOptions: {
+            ignore: ["**/index.html"], // if you're using HtmlWebpackPlugin
+          },
+        },
+      ],
+    }),
+  ],
 };
